@@ -73,7 +73,7 @@ void sirala(int verisayisi) {
 	FILE* dosya;
 	dosya = fopen("earthquake.txt", "r+");
 
-	printf("Siralamak Istediginiz Olcutu (il-ilçe, zaman, richter buyuklugu) Giriniz:");
+	printf("Siralamak Istediginiz Olcutu (il-ilÃ§e, zaman, richter buyuklugu) Giriniz:");
 	scanf("%s", key1);
 	while (!feof(dosya))
 	{
@@ -175,7 +175,6 @@ int ayristir()
     fclose(kayit2);
 	return verisay;
 }
-
 
 
 
