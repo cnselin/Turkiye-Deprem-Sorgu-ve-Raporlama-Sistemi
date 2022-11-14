@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#define CS 2307685
-#define ASS 17
 
-int bul(char* dStr, char* kStr)
+
+int bul(char* dStr, char* kStr)//strcmp
 {
 	int b1 = (int)strlen(dStr);
 	int b2 = (int)strlen(kStr);
@@ -26,22 +25,22 @@ int bul(char* dStr, char* kStr)
 
 
 int sorgula() {
-	FILE* dosya;
+	FILE* dosya;//dosya tanımı
 	FILE* kayit;
 
-	dosya = fopen("earthquake.txt", "r+");
-	kayit = fopen("kayitliveri.txt", "w");
-	char key, key1[20];
+	dosya = fopen("earthquake.cvs", "r+");//dosya acma
+	kayit = fopen("kayitliveri.cvs", "w");
+	char key, key1[20];//degişkenler 
 	char key2[500];
 	int i = 0, j = 0, verisay;
 
 	printf("lutfen aratmak istediginiz kelimeyi giriniz:");
 	scanf("%s", key1);
 
-	while (!feof(dosya))
+	while (!feof(dosya))//eof ye kadar ilerleme 
 	{
 		fscanf(dosya, "%c", &key);
-		key2[i] = key;
+		key2[i] = key;//degişkene doldurma
 		if (key2[i] == '\n') {
 			if (bul(key2, key1) == 0) {
 				verisay++;
@@ -61,18 +60,18 @@ int sorgula() {
 		}
 		i++;
 	}
-	fclose(dosya);
+	fclose(dosya);//dosya kapama 
 	return verisay;
 }
 
 
 
-void sirala(int verisayisi) {
+void sirala(int verisayisi) {//fail
 
 	int i = 0, j = verisayisi;
 	char depremler[i][500], key, key1[20], key2[500];
 	FILE* dosya;
-	dosya = fopen("earthquake.txt", "r+");
+	dosya = fopen("earthquake.cvs", "r+");
 
 	printf("lutfen aratmak istediginiz kelimeyi tekrar giriniz:");
 	scanf("%s", key1);
