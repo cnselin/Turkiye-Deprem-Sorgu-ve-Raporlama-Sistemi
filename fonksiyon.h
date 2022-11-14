@@ -1,10 +1,10 @@
-#include <stdio.h>
+#include <stdio.h> //standart kutuphaneler
 #include <string.h>
 #include <stdlib.h>
 #define CS 2307685
 #define ASS 17
 
-int bul(char* dStr, char* kStr)
+int bul(char* dStr, char* kStr)   //strcmp
 {
 	int b1 = (int)strlen(dStr);
 	int b2 = (int)strlen(kStr);
@@ -28,21 +28,21 @@ int bul(char* dStr, char* kStr)
 
 int sorgula() {
 	
-	FILE* dosya;
+	FILE* dosya;   //dosya tanımı
 	FILE* kayit;
 
-	dosya = fopen("earthquake.txt", "r+");
+	dosya = fopen("earthquake.txt", "r+");   //dosya acma
 	kayit = fopen("kayitliveri.txt", "w");
-	char key, key1[20];
+	char key, key1[20];   //degiskenler
 	char key2[500];
 	int i = 0, j = 0, verisay;
 
-	printf("Lutfen Sorgulamak Istediginiz Il-Ilce, Zaman veya Richter Buyuklugunu Giriniz:");
+	printf("Lutfen Sorgulamak Istediginiz Il-Ilce, Zaman veya Richter Buyuklugunu Giriniz:"); //kullanicidan sorgulamak istedigi kelime istenildi
 	scanf("%s", key1); 
-	while (!feof(dosya))
+	while (!feof(dosya))  //eofye kadar ilerleme
 	{
 		fscanf(dosya, "%c", &key);
-		key2[i] = key;
+		key2[i] = key;   //değişken doldurma
 		if (key2[i] == '\n') {
 			if (bul(key2, key1) == 0) {
 				verisay++;
@@ -62,18 +62,18 @@ int sorgula() {
 		}
 		i++;
 	}
-	fclose(dosya);
+	fclose(dosya); //dosya kapama
 	return verisay;
 }
 
-void sirala(int verisayisi) {
+void sirala(int verisayisi) {  //fail
 
 	int i = 0, j = verisayisi;
 	char depremler[i][500], key, key1[20], key2[500];
 	FILE* dosya;
 	dosya = fopen("earthquake.txt", "r+");
 
-	printf("Siralamak Istediginiz Olcutu (il-ilçe, zaman, richter buyuklugu) Giriniz:");
+	printf("Siralamak Istediginiz Olcutu (il-ilçe, zaman, richter buyuklugu) Giriniz:");  //kullanicidan siralamak istedigi kelime istenildi
 	scanf("%s", key1);
 	while (!feof(dosya))
 	{
@@ -105,43 +105,43 @@ void sirala(int verisayisi) {
 void kaydet()
 {
 
-    FILE* dosya;
+    FILE* dosya; //dosya tanımı 
 	FILE* kayit;
 	char ad[25];
 	char ch;
 	
-	dosya = fopen("kayitliveri.txt", "r"); 
-	printf("Sorgulanan/Siralanan Verilerin Kaydolacagi Dosyanin Adini Giriniz:");
+	dosya = fopen("kayitliveri.txt", "r");   //dosya acma
+	printf("Sorgulanan/Siralanan Verilerin Kaydolacagi Dosyanin Adini Giriniz:"); //kullanıcıdan dosya adi isteme
     scanf("%s",ad);
     char il[1000];
-	sprintf(il, "%s.csv", ad);
-	kayit=fopen(il,"w");
+	sprintf(il, "%s.csv", ad);   //kullancıdan alınan ad ile csv formatında dosyayı kaydetme
+	kayit=fopen(il,"w");  //dosyayı açma
     while ((ch = fgetc(dosya)) != EOF)
 	fputc(ch, kayit);
 
-    fclose(dosya);
+    fclose(dosya);  //dosya kapama
     fclose(kayit);
     
 }
 int ayristir()
 {
 
-	FILE* dosya;
+	FILE* dosya;  //dosya tanımı
 	FILE* kayit;
 	FILE* kayit2;
-	char ch;
+	char ch; //degisken
 
-	dosya = fopen("earthquake.txt", "r+");
+	dosya = fopen("earthquake.txt", "r+");   //dosya acma
 	kayit = fopen("ayristir.txt", "w");
-	char key, key1[20];
+	char key, key1[20];   //degiskenler
 	char key2[500];
 	int i = 0, j = 0, verisay;
 	
-	printf("Lutfen Ayristirmak Istediginiz Ili Giriniz:");
+	printf("Lutfen Ayristirmak Istediginiz Ili Giriniz:");   //kullanıcıdan ili isteme
 	scanf("%s", key1);
 
     char il[1000];
-	sprintf(il, "%s.csv", key1);
+	sprintf(il, "%s.csv", key1);  //alınan ili csv formatında kayetme
 	kayit2=fopen(il,"w");
 	while (!feof(dosya))
 	{
@@ -170,12 +170,15 @@ int ayristir()
 
 	}
 
-    fclose(dosya);
+    fclose(dosya); //dosya kapama
     fclose(kayit);
     fclose(kayit2);
 	return verisay;
 }
-
+int analiz() //fail
+{
+	
+}
 
 
 
