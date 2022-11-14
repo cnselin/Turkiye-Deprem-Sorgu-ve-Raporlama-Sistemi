@@ -1,25 +1,25 @@
 #include <stdio.h> //standart kutuphaneler 
-#include <stdlib.h> //standart kutuphaneler 
-#include <string.h> //standart kutuphaneler 
+#include <stdlib.h> 
+#include <string.h> 
 #include "arayuz.h" //arayuz ve menu icin olusturulmus kutuphane
-#include "fonksiyon.h"
+#include "fonksiyon.h" //fonskiyonların olduğu header dosyası
 
-int main () {
+int main () {  //main fonksiyonu
     
-    FILE *dosya;
-    dosya=fopen("earthquake.txt","r");
+    FILE *dosya;  //dosya tanımı
+    dosya=fopen("earthquake.txt","r");   //verilerin olduğu dosyayı açma
     
     if(dosya==NULL) {
-        printf("DOSYA BULUNAMADI!\n");
+        printf("DOSYA BULUNAMADI!\n");  //eger dosyaya erisilemiyorsa ekrana yazma
     }
-basla:;
-int secim=menu();    
+basla:;  
+int secim=menu();     //fonksiyon cagirma
 //int verisayisi=sorgula();
 
-switch(secim)
+switch(secim)  //menü secim
  {
     case 1:
-    sorgula();
+    sorgula();  //her secimde istenilen fonksiyonu cagirdik
     break;
     
     case 2:
@@ -27,6 +27,7 @@ switch(secim)
     break;
     
     case 3:
+    sorgula();
     kaydet();
     break;
     
@@ -35,27 +36,28 @@ switch(secim)
     break;
     	
     case 5:
-
+    //analiz();
     break;
     
     case 6:
+    printf("Gorusmek Uzere :)\n"); //kullnıcı cikis yapti
     break;
     
 }
     int karar;
-	printf("Menuye Tekrar Donmek Ister Misiniz? Evet ise (1), Hayir ise (0) Giriniz:");
+	printf("Menuye Tekrar Donmek Ister Misiniz? Evet ise (1), Hayir ise (0) Giriniz:"); //herhangi bir secim yapıldıktan sonra kullaniciya tekrardan secim yapacagi soruldu
 	scanf("%d",&karar);
 	switch(karar)
 	{
 	case 1:
-		goto basla;
+		goto basla; // evet ise basla kısmına goto il gönderildi
 		break;
-	case 0:
+	case 0:           //hayır ise uygulama sona ercek
 		break;
-	default:
+	default:          //hatalı giriste uygulama sona erecek
 	    break;
 	}
     
-   fclose(dosya);
+   fclose(dosya);  //dosya kapama
     return 0;
 }
