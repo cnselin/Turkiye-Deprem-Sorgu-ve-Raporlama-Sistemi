@@ -27,7 +27,7 @@ switch(secim)  //menü secim
     break;
     
     case 3:
-    sorgula();
+    //sorgula();
     kaydet();
     break;
     
